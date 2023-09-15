@@ -33,3 +33,7 @@ body {
 .answer.active {
     display: block;
 }
+h1 {
+    text-align: center;
+}
+
