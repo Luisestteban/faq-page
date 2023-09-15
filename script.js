@@ -1,36 +1,59 @@
-// Obtén todos los elementos de clase "toggle-answer"
-const toggleButtons = document.querySelectorAll('.toggle-answer');
+/* Estilos generales para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
 
-// Agrega un evento clic a cada botón
-toggleButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Encuentra el elemento "p" (respuesta) hermano del botón actual
-        const answer = button.nextElementSibling;
+/* Contenedor principal de preguntas frecuentes */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        // Verifica si la respuesta está oculta
-        if (answer.classList.contains('hidden')) {
-            // Cierra todas las respuestas abiertas
-            document.querySelectorAll('.answer').forEach(a => {
-                a.classList.add('hidden');
-            });
+/* Estilos para el título */
+h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-            // Muestra la respuesta actual
-            answer.classList.remove('hidden');
-            
-            // Cambia el texto del botón a "Ocultar respuesta" solo para el botón actual
-            toggleButtons.forEach(btn => {
-                if (btn !== button) {
-                    btn.textContent = 'Mostrar respuesta';
-                } else {
-                    button.textContent = 'Ocultar respuesta';
-                }
-            });
-        } else {
-            // Oculta la respuesta actual
-            answer.classList.add('hidden');
+/* Estilos para las preguntas */
+.question {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
 
-            // Cambia el texto del botón a "Mostrar respuesta" solo para el botón actual
-            button.textContent = 'Mostrar respuesta';
-        }
-    });
-});
+/* Estilos para los botones de mostrar/ocultar respuestas */
+.toggle-answer {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Estilos para las respuestas (ocultas por defecto) */
+.answer {
+    display: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Estilos para las respuestas cuando se muestran */
+.answer:not(.hidden) {
+    display: block;
+}
