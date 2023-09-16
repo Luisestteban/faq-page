@@ -1,27 +1,28 @@
+// Obtén todos los elementos de clase "toggle-answer"
 const toggleButtons = document.querySelectorAll('.toggle-answer');
 
+// Agrega un evento clic a cada botón
 toggleButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const answer = button.nextElementSibling;
+  button.addEventListener('click', () => {
+    // Encuentra el elemento "p" (respuesta) hermano del botón actual
+    const answer = button.parentElement.nextElementSibling;
 
-        if (answer.classList.contains('hidden')) {
-            document.querySelectorAll('.answer').forEach(a => {
-                a.classList.add('hidden');
-            });
+    // Verifica si la respuesta está oculta
+    if (answer.classList.contains('hidden')) {
+      // Cierra todas las respuestas abiertas
+      document.querySelectorAll('.answer').forEach(a => a.classList.add('hidden'));
 
-            answer.classList.remove('hidden');
-            toggleButtons.forEach(btn => {
-                if (btn !== button) {
-                    btn.textContent = 'Mostrar respuesta';
-                } else {
-                    button.textContent = 'Ocultar respuesta';
-                }
-            });
-        } else {
+      // Muestra la respuesta actual
+      answer.classList.remove('hidden');
 
-            answer.classList.add('hidden');
+      // Cambia el texto del botón a la flecha hacia arriba
+      button.innerHTML = '&#9650;';
+    } else {
+      // Oculta la respuesta actual
+      answer.classList.add('hidden');
 
-            button.textContent = 'Mostrar respuesta';
-        }
-    });
+      // Cambia el texto del botón a la flecha hacia abajo
+      button.innerHTML = '&#9660;';
+    }
+  });
 });
