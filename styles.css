@@ -5,6 +5,7 @@
     border-radius: 10px;
     padding: 20px;
     font-family: Arial, sans-serif;
+    text-align: center; /* Añade esta línea para centrar el texto */
   }
   
   .question {
