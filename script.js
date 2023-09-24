@@ -11,18 +11,23 @@ toggleButtons.forEach(button => {
     if (answer.classList.contains('hidden')) {
       // Cierra todas las respuestas abiertas
       document.querySelectorAll('.answer').forEach(a => a.classList.add('hidden'));
+      
+      // Cambia todas las flechas a "hacia abajo"
+      document.querySelectorAll('.toggle-answer').forEach(btn => {
+        btn.innerHTML = '&#9660;'; // Flecha hacia abajo
+      });
 
       // Muestra la respuesta actual
       answer.classList.remove('hidden');
 
       // Cambia el texto del botón a la flecha hacia arriba
-      button.innerHTML = '&#9650;';
+      button.innerHTML = '&#9650;'; // Flecha hacia arriba
     } else {
       // Oculta la respuesta actual
       answer.classList.add('hidden');
 
       // Cambia el texto del botón a la flecha hacia abajo
-      button.innerHTML = '&#9660;';
+      button.innerHTML = '&#9660;'; // Flecha hacia abajo
     }
   });
 });
